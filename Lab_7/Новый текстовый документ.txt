@@ -1,0 +1,5 @@
+/*Settings other = (Settings) obj;
+		for (String key : hashMap.keySet())
+			if (other.hashMap.containsKey(key) == false || (other.hashMap.containsKey(key) && other.get(key) != this.get(key)))
+				return false;*/
+        //return true;

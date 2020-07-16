@@ -1,0 +1,87 @@
+        static Object sscanf (String format, String in){
+            StringBuilder result = new StringBuilder(20);
+            Scanner scan = new Scanner(System.in);
+            for (int i = 0; i < format.length(); i++) {
+                if (format.charAt(i) == '%' && format.charAt(i + 1) == 'd') {
+                    result.append(scan.nextInt() + " ");
+                }
+                if (format.charAt(i) == '%' && format.charAt(i + 1) == 'f') {
+                    result.append(scan.nextDouble() + " ");
+                }
+                if (format.charAt(i) == '%' && format.charAt(i + 1) == 's') {
+                    result.append(scan.next() + " ");
+                }
+                if (format.charAt(i) == '%' && format.charAt(i + 1) == 'c') {
+                    result.append(scan.next().charAt(0) + " ");
+                }
+            }
+
+            return result;
+        }
+  static Object[] sscanf(String format, String in) {
+        StringBuilder result = new StringBuilder(20);
+        int integer = 0;
+        double Double = 0.000000000000000000000;
+        char symbol = '0';
+        String str = "";
+
+        String s = "";
+
+        int j = 0;
+        for (j = 0; j < in.length(); j++)
+            if (in.charAt(j) != ' ')
+                break;
+        for (int i = 0; i < format.length(); i++) {
+            if (format.charAt(i) == ' ' || format.charAt(i) == '%') {
+                continue;
+            }
+            if (in.charAt(j) == ' ')
+                j++;
+            if (format.charAt(i) == 'd') {
+                while (in.charAt(j) != ' ') {
+                    if ((int) in.charAt(j) >= 48 && (int) in.charAt(j) <= 57)
+                        s = s + in.charAt(j);
+
+                    if (j == in.length())
+                        break;
+                }
+                integer = Integer.parseInt(s);
+                result.append(integer + " ");
+
+                s = "";
+            } else if (format.charAt(i) == 'f') {
+                while (in.charAt(j) != ' ') {
+                    if (in.charAt(j) >= '0' && in.charAt(j) <= '9' || in.charAt(j) == '.')
+                        s = s + in.charAt(j);
+                    j++;
+                    if (j == in.length())
+                        break;
+                }
+                Double = Float.parseFloat(s);
+                result.append(Double + " ");
+                s = "";
+            } else if (format.charAt(i) == 's') {
+                while (in.charAt(j) != ' ') {
+                    str = str + in.charAt(j);
+                    j++;
+                    if (j == in.length())
+                        break;
+                }
+                s = "";
+                result.append(str + " ");
+            } else if (format.charAt(i) == 'c') {
+                symbol = in.charAt(j);
+                j++;
+                result.append(symbol + " ");
+            }
+        }
+        return new String[]{result.toString()};
+    }
+}
+
+
+        a.scanf("%d %s %f");
+        System.out.print(a);
+
+        a.scanf("%d %d %d");
+        System.out.print(a);

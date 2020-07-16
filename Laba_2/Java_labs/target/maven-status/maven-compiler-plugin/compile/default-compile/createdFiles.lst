@@ -1,0 +1,6 @@
+company\Sparse.class
+company\Main.class
+company\matrix\IMatrix.class
+company\matrix\SparseMatrix.class
+company\matrix\UsualMatrix.class
+company\matrix\SquareMatirx.class
